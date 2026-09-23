@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="280" viewBox="0 0 1000 280" role="img" aria-label="Anti-Spoofing Liveness Pipeline Architecture">
+  <style>
+    .node-title { font-family: 'Inter', system-ui, sans-serif; font-size: 13px; font-weight: 700; fill: #ffffff; }
+    .node-sub { font-family: 'SF Mono', 'Geist Mono', monospace; font-size: 10px; fill: #94a3b8; }
+    .edge-label { font-family: 'SF Mono', 'Geist Mono', monospace; font-size: 10px; font-weight: 600; }
+  </style>
+
+  <!-- Canvas -->
+  <rect width="1000" height="280" rx="14" fill="#030712" stroke="#1f2937" stroke-width="1"/>
+
+  <!-- Top Title -->
+  <text x="24" y="28" font-family="'SF Mono', monospace" font-size="11" font-weight="600" fill="#10b981" letter-spacing="1px">
+    PIPELINE ARCHITECTURE // REAL-TIME FACIAL ANTI-SPOOFING &amp; LIVENESS VERIFICATION
+  </text>
+  <text x="976" y="28" text-anchor="end" font-family="'SF Mono', monospace" font-size="10" fill="#64748b">
+    ACCURACY: 99.4% · EER: 0.9% · 45 FPS REALTIME
+  </text>
+  <line x1="24" y1="40" x2="976" y2="40" stroke="#1f2937" stroke-width="1"/>
+
+  <!-- Node 1: Video Capture -->
+  <g transform="translate(36, 100)">
+    <rect width="130" height="84" rx="8" fill="#0b0f19" stroke="#334155" stroke-width="1.2"/>
+    <text x="65" y="36" text-anchor="middle" class="node-title">RGB Input</text>
+    <text x="65" y="54" text-anchor="middle" class="node-sub">Live Video Stream</text>
+    <rect x="20" y="62" width="90" height="14" rx="3" fill="#1e293b"/>
+    <text x="65" y="72" text-anchor="middle" class="node-sub" fill="#10b981">1080p @ 30 FPS</text>
+  </g>
+
+  <!-- Arrow 1 -> 2 -->
+  <line x1="166" y1="142" x2="220" y2="142" stroke="#10b981" stroke-width="1.5"/>
+  <polygon points="220,142 213,138 213,146" fill="#10b981"/>
+
+  <!-- Node 2: Face ROI & Alignment -->
+  <g transform="translate(224, 90)">
+    <rect width="160" height="104" rx="8" fill="#0b0f19" stroke="#334155" stroke-width="1.2"/>
+    <text x="80" y="38" text-anchor="middle" class="node-title">ROI Detection</text>
+    <text x="80" y="56" text-anchor="middle" class="node-sub">Landmark Alignment</text>
+    <text x="80" y="74" text-anchor="middle" class="node-sub">Affine Warp 256x256</text>
+    <rect x="15" y="80" width="130" height="14" rx="3" fill="#1e293b"/>
+    <text x="80" y="91" text-anchor="middle" class="node-sub" fill="#38bdf8">YCbCr + HSV Color</text>
+  </g>
+
+  <!-- Branch: Stream A (Deep Spatial) -->
+  <path d="M 384,120 L 440,120 L 440,80 L 470,80" fill="none" stroke="#38bdf8" stroke-width="1.5"/>
+  <polygon points="470,80 463,76 463,84" fill="#38bdf8"/>
+  <text x="420" y="70" class="edge-label" fill="#38bdf8">STREAM A</text>
+
+  <!-- Node 3A: Spatial Deep Features -->
+  <g transform="translate(474, 50)">
+    <rect width="200" height="64" rx="8" fill="#0369a1" fill-opacity="0.15" stroke="#0284c7" stroke-width="1.2"/>
+    <text x="100" y="28" text-anchor="middle" class="node-title" fill="#38bdf8">Spatial ResNet Backbone</text>
+    <text x="100" y="46" text-anchor="middle" class="node-sub" fill="#bae6fd">Deep Artifact &amp; Depth Maps</text>
+  </g>
+
+  <!-- Branch: Stream B (Frequency/Texture) -->
+  <path d="M 384,160 L 440,160 L 440,200 L 470,200" fill="none" stroke="#a855f7" stroke-width="1.5"/>
+  <polygon points="470,200 463,196 463,204" fill="#a855f7"/>
+  <text x="420" y="222" class="edge-label" fill="#a855f7">STREAM B</text>
+
+  <!-- Node 3B: Frequency Domain Analysis -->
+  <g transform="translate(474, 168)">
+    <rect width="200" height="64" rx="8" fill="#581c87" fill-opacity="0.15" stroke="#7e22ce" stroke-width="1.2"/>
+    <text x="100" y="28" text-anchor="middle" class="node-title" fill="#c084fc">Frequency &amp; Texture (FFT/LBP)</text>
+    <text x="100" y="46" text-anchor="middle" class="node-sub" fill="#e9d5ff">Screen Moiré &amp; Print Edge</text>
+  </g>
+
+  <!-- Merge to Fusion -->
+  <path d="M 674,82 L 720,82 L 720,122 L 750,122" fill="none" stroke="#38bdf8" stroke-width="1.5"/>
+  <path d="M 674,200 L 720,200 L 720,162 L 750,162" fill="none" stroke="#a855f7" stroke-width="1.5"/>
+  <polygon points="750,142 743,138 743,146" fill="#ffffff"/>
+
+  <!-- Node 4: Fusion & Decision Layer -->
+  <g transform="translate(754, 96)">
+    <rect width="210" height="92" rx="8" fill="#0b0f19" stroke="#10b981" stroke-width="1.5"/>
+    <text x="105" y="30" text-anchor="middle" class="node-title">Fusion Classifier</text>
+    <text x="105" y="48" text-anchor="middle" class="node-sub">Attention Concatenation</text>
+    <rect x="20" y="58" width="170" height="24" rx="4" fill="#064e3b" fill-opacity="0.3"/>
+    <text x="105" y="74" text-anchor="middle" class="node-title" font-size="11" fill="#34d399">LIVENESS SCORE &gt;= 0.85</text>
+  </g>
+</svg>

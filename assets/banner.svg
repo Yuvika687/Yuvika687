@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="280" viewBox="0 0 1200 280" role="img" aria-label="Yuvika Malhotra — AI/ML Engineer">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="ambientGlow" cx="50%" cy="0%" r="80%">
+      <stop offset="0%" stop-color="#1e1b4b" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#090d16" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="1"/>
+    </radialGradient>
+
+    <!-- Linear Accent Line -->
+    <linearGradient id="topBorder" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0"/>
+      <stop offset="25%" stop-color="#38bdf8" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#818cf8" stop-opacity="0.8"/>
+      <stop offset="75%" stop-color="#c084fc" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Dot Pattern -->
+    <pattern id="gridDots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#ffffff" fill-opacity="0.08"/>
+    </pattern>
+  </defs>
+
+  <style>
+    .name { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; font-weight: 700; font-size: 52px; letter-spacing: -1.5px; fill: #ffffff; }
+    .title { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; font-weight: 400; font-size: 18px; letter-spacing: -0.2px; fill: #94a3b8; }
+    .mono { font-family: 'SF Mono', 'Geist Mono', 'JetBrains Mono', Menlo, Consolas, monospace; }
+  </style>
+
+  <!-- Canvas -->
+  <rect width="1200" height="280" rx="16" fill="#000000"/>
+  <rect width="1200" height="280" rx="16" fill="url(#ambientGlow)"/>
+  <rect width="1200" height="280" rx="16" fill="url(#gridDots)"/>
+  <rect width="1200" height="280" rx="16" fill="none" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Top Accent Beam -->
+  <line x1="100" y1="1" x2="1100" y2="1" stroke="url(#topBorder)" stroke-width="2"/>
+
+  <!-- Identity Block -->
+  <g transform="translate(64, 76)">
+    <!-- Status Pill -->
+    <rect x="0" y="0" width="280" height="26" rx="13" fill="#0f172a" stroke="#334155" stroke-width="0.8"/>
+    <circle cx="14" cy="13" r="3.5" fill="#10b981"/>
+    <text x="26" y="17" class="mono" font-size="11" font-weight="500" fill="#cbd5e1" letter-spacing="0.5px">
+      SYSTEMS &amp; INTELLIGENCE LAB
+    </text>
+
+    <!-- Main Title -->
+    <text x="0" y="72" class="name">Yuvika Malhotra</text>
+    <text x="0" y="104" class="title">AI / Machine Learning Engineer · Distributed Systems &amp; Computer Vision</text>
+
+    <!-- Tech Arsenal Tags -->
+    <g transform="translate(0, 134)">
+      <!-- Python -->
+      <g transform="translate(0, 0)"><rect width="70" height="24" rx="6" fill="#0b0f19" stroke="#1e293b"/><text x="35" y="16" text-anchor="middle" class="mono" font-size="11" fill="#cbd5e1">Python</text></g>
+      <!-- C++ -->
+      <g transform="translate(78, 0)"><rect width="52" height="24" rx="6" fill="#0b0f19" stroke="#1e293b"/><text x="26" y="16" text-anchor="middle" class="mono" font-size="11" fill="#cbd5e1">C++</text></g>
+      <!-- PyTorch -->
+      <g transform="translate(138, 0)"><rect width="76" height="24" rx="6" fill="#0b0f19" stroke="#1e293b"/><text x="38" y="16" text-anchor="middle" class="mono" font-size="11" fill="#cbd5e1">PyTorch</text></g>
+      <!-- OpenCV -->
+      <g transform="translate(222, 0)"><rect width="76" height="24" rx="6" fill="#0b0f19" stroke="#1e293b"/><text x="38" y="16" text-anchor="middle" class="mono" font-size="11" fill="#cbd5e1">OpenCV</text></g>
+      <!-- FastAPI -->
+      <g transform="translate(306, 0)"><rect width="72" height="24" rx="6" fill="#0b0f19" stroke="#1e293b"/><text x="36" y="16" text-anchor="middle" class="mono" font-size="11" fill="#cbd5e1">FastAPI</text></g>
+      <!-- Redis -->
+      <g transform="translate(386, 0)"><rect width="60" height="24" rx="6" fill="#0b0f19" stroke="#1e293b"/><text x="30" y="16" text-anchor="middle" class="mono" font-size="11" fill="#cbd5e1">Redis</text></g>
+      <!-- PostgreSQL -->
+      <g transform="translate(454, 0)"><rect width="94" height="24" rx="6" fill="#0b0f19" stroke="#1e293b"/><text x="47" y="16" text-anchor="middle" class="mono" font-size="11" fill="#cbd5e1">PostgreSQL</text></g>
+      <!-- Docker -->
+      <g transform="translate(556, 0)"><rect width="68" height="24" rx="6" fill="#0b0f19" stroke="#1e293b"/><text x="34" y="16" text-anchor="middle" class="mono" font-size="11" fill="#cbd5e1">Docker</text></g>
+    </g>
+  </g>
+
+  <!-- Right Visual Element: Architectural Wireframe Motif -->
+  <g transform="translate(980, 50)" opacity="0.6">
+    <rect x="0" y="0" width="150" height="180" rx="12" fill="none" stroke="#334155" stroke-dasharray="4 4"/>
+    <line x1="20" y1="40" x2="130" y2="40" stroke="#475569" stroke-width="1.5"/>
+    <line x1="20" y1="70" x2="100" y2="70" stroke="#475569" stroke-width="1.5"/>
+    <line x1="20" y1="100" x2="120" y2="100" stroke="#475569" stroke-width="1.5"/>
+    <line x1="20" y1="130" x2="80" y2="130" stroke="#475569" stroke-width="1.5"/>
+    <circle cx="120" cy="130" r="4" fill="#38bdf8"/>
+    <circle cx="120" cy="130" r="8" fill="none" stroke="#38bdf8" stroke-width="0.8" opacity="0.5"/>
+  </g>
+</svg>
