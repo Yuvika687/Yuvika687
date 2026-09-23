@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="580" height="230" viewBox="0 0 580 230" role="img" aria-label="Crowd Density CV — UNSUPERVISED CV · SAFETY">
+<title>Crowd Density CV — UNSUPERVISED CV · SAFETY</title>
+<defs>
+  <linearGradient id="bd_crowd_vision" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#06b6d4"/>
+    <stop offset=".5" stop-color="#1e1b4b"/>
+    <stop offset="1" stop-color="#10b981"/>
+    <animateTransform attributeName="gradientTransform" type="rotate" values="0 .5 .5;360 .5 .5" dur="6s" repeatCount="indefinite"/>
+  </linearGradient>
+  <linearGradient id="sh_crowd_vision" x1="0" x2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+    <stop offset=".5" stop-color="#fff" stop-opacity=".07"/>
+    <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+  </linearGradient>
+  <radialGradient id="gl_crowd_vision" cx="0" cy="0" r="1">
+    <stop offset="0" stop-color="#06b6d4" stop-opacity=".3"/>
+    <stop offset="1" stop-color="#06b6d4" stop-opacity="0"/>
+  </radialGradient>
+  <clipPath id="cl_crowd_vision"><rect width="580" height="230" rx="20"/></clipPath>
+</defs>
+<style>
+  .t_crowd_vision{font:700 23px 'Segoe UI', system-ui, -apple-system, sans-serif;fill:#e2e8f0}
+  .c_crowd_vision{font:700 11px 'JetBrains Mono', monospace;letter-spacing:2px;fill:#10b981}
+  .d_crowd_vision{font:400 14px 'Segoe UI', system-ui, -apple-system, sans-serif;fill:#94a3b8}
+  .tag_crowd_vision{font:600 11px 'JetBrains Mono', monospace;fill:#06b6d4}
+  .st_crowd_vision{font:700 12px 'JetBrains Mono', monospace;fill:#a3e635}
+  .dot_crowd_vision{animation:p_crowd_vision 1.8s ease-out infinite;transform-box:fill-box;transform-origin:center}
+  @keyframes p_crowd_vision{to{transform:scale(3);opacity:0}}
+  .sw_crowd_vision{animation:sw_crowd_vision 5s ease-in-out infinite}
+  @keyframes sw_crowd_vision{0%{transform:translateX(-300px) skewX(-20deg)}60%,100%{transform:translateX(780px) skewX(-20deg)}}
+  .ic_crowd_vision{animation:bob_crowd_vision 4s ease-in-out infinite}
+  @keyframes bob_crowd_vision{50%{transform:translateY(-4px)}}
+</style>
+<g clip-path="url(#cl_crowd_vision)">
+  <rect width="580" height="230" fill="#0b0d1a"/>
+  <circle cx="0" cy="0" r="260" fill="url(#gl_crowd_vision)"/>
+  <rect class="sw_crowd_vision" x="0" y="0" width="160" height="230" fill="url(#sh_crowd_vision)"/>
+</g>
+<rect x="1" y="1" width="578" height="228" rx="19" fill="none" stroke="url(#bd_crowd_vision)" stroke-width="2"/>
+<g class="ic_crowd_vision">
+  <rect x="28" y="24" width="46" height="46" rx="12" fill="#06b6d4" fill-opacity=".15" stroke="#06b6d4" stroke-opacity=".45"/>
+  <text x="51" y="56" text-anchor="middle" font-size="24">👥</text>
+</g>
+<text x="88" y="55" class="t_crowd_vision">Crowd Density CV</text>
+<text x="552" y="42" text-anchor="end" class="c_crowd_vision">UNSUPERVISED CV · SAFETY</text>
+<text x="28" y="104" class="d_crowd_vision">Unsupervised computer vision pipeline for</text>
+<text x="28" y="126" class="d_crowd_vision">spatial crowd density estimation and stampede</text>
+<text x="28" y="148" class="d_crowd_vision">risk prevention in large-scale public events.</text>
+
+<g transform="translate(28 178)">
+  <rect width="72" height="26" rx="13" fill="#06b6d4" fill-opacity=".12" stroke="#06b6d4" stroke-opacity=".45"/>
+  <text x="36.0" y="17" text-anchor="middle" class="tag_crowd_vision">Python</text>
+</g>
+<g transform="translate(108 178)">
+  <rect width="72" height="26" rx="13" fill="#06b6d4" fill-opacity=".12" stroke="#06b6d4" stroke-opacity=".45"/>
+  <text x="36.0" y="17" text-anchor="middle" class="tag_crowd_vision">OpenCV</text>
+</g>
+<g transform="translate(188 178)">
+  <rect width="108" height="26" rx="13" fill="#06b6d4" fill-opacity=".12" stroke="#06b6d4" stroke-opacity=".45"/>
+  <text x="54.0" y="17" text-anchor="middle" class="tag_crowd_vision">Clustering</text>
+</g>
+<g transform="translate(304 178)">
+  <rect width="72" height="26" rx="13" fill="#06b6d4" fill-opacity=".12" stroke="#06b6d4" stroke-opacity=".45"/>
+  <text x="36.0" y="17" text-anchor="middle" class="tag_crowd_vision">Safety</text>
+</g>
+
+<circle cx="490" cy="191" r="5" fill="#a3e635"/>
+<circle cx="490" cy="191" r="5" fill="#a3e635" class="dot_crowd_vision"/>
+<text x="502" y="195" class="st_crowd_vision">source ↗</text>
+</svg>

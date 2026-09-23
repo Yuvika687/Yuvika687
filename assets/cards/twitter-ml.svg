@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="580" height="230" viewBox="0 0 580 230" role="img" aria-label="Twitter Botnet Detection — MACHINE LEARNING · NLP">
+<title>Twitter Botnet Detection — MACHINE LEARNING · NLP</title>
+<defs>
+  <linearGradient id="bd_twitter_ml" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#3b82f6"/>
+    <stop offset=".5" stop-color="#1e1b4b"/>
+    <stop offset="1" stop-color="#8b5cf6"/>
+    <animateTransform attributeName="gradientTransform" type="rotate" values="0 .5 .5;360 .5 .5" dur="6s" repeatCount="indefinite"/>
+  </linearGradient>
+  <linearGradient id="sh_twitter_ml" x1="0" x2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+    <stop offset=".5" stop-color="#fff" stop-opacity=".07"/>
+    <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+  </linearGradient>
+  <radialGradient id="gl_twitter_ml" cx="0" cy="0" r="1">
+    <stop offset="0" stop-color="#3b82f6" stop-opacity=".3"/>
+    <stop offset="1" stop-color="#3b82f6" stop-opacity="0"/>
+  </radialGradient>
+  <clipPath id="cl_twitter_ml"><rect width="580" height="230" rx="20"/></clipPath>
+</defs>
+<style>
+  .t_twitter_ml{font:700 23px 'Segoe UI', system-ui, -apple-system, sans-serif;fill:#e2e8f0}
+  .c_twitter_ml{font:700 11px 'JetBrains Mono', monospace;letter-spacing:2px;fill:#8b5cf6}
+  .d_twitter_ml{font:400 14px 'Segoe UI', system-ui, -apple-system, sans-serif;fill:#94a3b8}
+  .tag_twitter_ml{font:600 11px 'JetBrains Mono', monospace;fill:#3b82f6}
+  .st_twitter_ml{font:700 12px 'JetBrains Mono', monospace;fill:#a3e635}
+  .dot_twitter_ml{animation:p_twitter_ml 1.8s ease-out infinite;transform-box:fill-box;transform-origin:center}
+  @keyframes p_twitter_ml{to{transform:scale(3);opacity:0}}
+  .sw_twitter_ml{animation:sw_twitter_ml 5s ease-in-out infinite}
+  @keyframes sw_twitter_ml{0%{transform:translateX(-300px) skewX(-20deg)}60%,100%{transform:translateX(780px) skewX(-20deg)}}
+  .ic_twitter_ml{animation:bob_twitter_ml 4s ease-in-out infinite}
+  @keyframes bob_twitter_ml{50%{transform:translateY(-4px)}}
+</style>
+<g clip-path="url(#cl_twitter_ml)">
+  <rect width="580" height="230" fill="#0b0d1a"/>
+  <circle cx="0" cy="0" r="260" fill="url(#gl_twitter_ml)"/>
+  <rect class="sw_twitter_ml" x="0" y="0" width="160" height="230" fill="url(#sh_twitter_ml)"/>
+</g>
+<rect x="1" y="1" width="578" height="228" rx="19" fill="none" stroke="url(#bd_twitter_ml)" stroke-width="2"/>
+<g class="ic_twitter_ml">
+  <rect x="28" y="24" width="46" height="46" rx="12" fill="#3b82f6" fill-opacity=".15" stroke="#3b82f6" stroke-opacity=".45"/>
+  <text x="51" y="56" text-anchor="middle" font-size="24">🛡️</text>
+</g>
+<text x="88" y="55" class="t_twitter_ml">Twitter Botnet Detection</text>
+<text x="552" y="42" text-anchor="end" class="c_twitter_ml">MACHINE LEARNING · NLP</text>
+<text x="28" y="104" class="d_twitter_ml">Supervised machine learning pipeline analyzing</text>
+<text x="28" y="126" class="d_twitter_ml">account graph dynamics, behavioral heuristics,</text>
+<text x="28" y="148" class="d_twitter_ml">and sentiment to detect malicious bots.</text>
+
+<g transform="translate(28 178)">
+  <rect width="72" height="26" rx="13" fill="#3b82f6" fill-opacity=".12" stroke="#3b82f6" stroke-opacity=".45"/>
+  <text x="36.0" y="17" text-anchor="middle" class="tag_twitter_ml">Python</text>
+</g>
+<g transform="translate(108 178)">
+  <rect width="126" height="26" rx="13" fill="#3b82f6" fill-opacity=".12" stroke="#3b82f6" stroke-opacity=".45"/>
+  <text x="63.0" y="17" text-anchor="middle" class="tag_twitter_ml">Scikit-Learn</text>
+</g>
+<g transform="translate(242 178)">
+  <rect width="50" height="26" rx="13" fill="#3b82f6" fill-opacity=".12" stroke="#3b82f6" stroke-opacity=".45"/>
+  <text x="25.0" y="17" text-anchor="middle" class="tag_twitter_ml">NLP</text>
+</g>
+<g transform="translate(300 178)">
+  <rect width="50" height="26" rx="13" fill="#3b82f6" fill-opacity=".12" stroke="#3b82f6" stroke-opacity=".45"/>
+  <text x="25.0" y="17" text-anchor="middle" class="tag_twitter_ml">ML</text>
+</g>
+
+<circle cx="490" cy="191" r="5" fill="#a3e635"/>
+<circle cx="490" cy="191" r="5" fill="#a3e635" class="dot_twitter_ml"/>
+<text x="502" y="195" class="st_twitter_ml">source ↗</text>
+</svg>

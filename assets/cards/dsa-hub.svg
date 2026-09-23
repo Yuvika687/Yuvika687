@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="580" height="230" viewBox="0 0 580 230" role="img" aria-label="DSA & Algorithmic Hub — PATTERNS · LEETCODE RPG">
+<title>DSA & Algorithmic Hub — PATTERNS · LEETCODE RPG</title>
+<defs>
+  <linearGradient id="bd_dsa_hub" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#f59e0b"/>
+    <stop offset=".5" stop-color="#1e1b4b"/>
+    <stop offset="1" stop-color="#ef4444"/>
+    <animateTransform attributeName="gradientTransform" type="rotate" values="0 .5 .5;360 .5 .5" dur="6s" repeatCount="indefinite"/>
+  </linearGradient>
+  <linearGradient id="sh_dsa_hub" x1="0" x2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+    <stop offset=".5" stop-color="#fff" stop-opacity=".07"/>
+    <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+  </linearGradient>
+  <radialGradient id="gl_dsa_hub" cx="0" cy="0" r="1">
+    <stop offset="0" stop-color="#f59e0b" stop-opacity=".3"/>
+    <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+  </radialGradient>
+  <clipPath id="cl_dsa_hub"><rect width="580" height="230" rx="20"/></clipPath>
+</defs>
+<style>
+  .t_dsa_hub{font:700 23px 'Segoe UI', system-ui, -apple-system, sans-serif;fill:#e2e8f0}
+  .c_dsa_hub{font:700 11px 'JetBrains Mono', monospace;letter-spacing:2px;fill:#ef4444}
+  .d_dsa_hub{font:400 14px 'Segoe UI', system-ui, -apple-system, sans-serif;fill:#94a3b8}
+  .tag_dsa_hub{font:600 11px 'JetBrains Mono', monospace;fill:#f59e0b}
+  .st_dsa_hub{font:700 12px 'JetBrains Mono', monospace;fill:#a3e635}
+  .dot_dsa_hub{animation:p_dsa_hub 1.8s ease-out infinite;transform-box:fill-box;transform-origin:center}
+  @keyframes p_dsa_hub{to{transform:scale(3);opacity:0}}
+  .sw_dsa_hub{animation:sw_dsa_hub 5s ease-in-out infinite}
+  @keyframes sw_dsa_hub{0%{transform:translateX(-300px) skewX(-20deg)}60%,100%{transform:translateX(780px) skewX(-20deg)}}
+  .ic_dsa_hub{animation:bob_dsa_hub 4s ease-in-out infinite}
+  @keyframes bob_dsa_hub{50%{transform:translateY(-4px)}}
+</style>
+<g clip-path="url(#cl_dsa_hub)">
+  <rect width="580" height="230" fill="#0b0d1a"/>
+  <circle cx="0" cy="0" r="260" fill="url(#gl_dsa_hub)"/>
+  <rect class="sw_dsa_hub" x="0" y="0" width="160" height="230" fill="url(#sh_dsa_hub)"/>
+</g>
+<rect x="1" y="1" width="578" height="228" rx="19" fill="none" stroke="url(#bd_dsa_hub)" stroke-width="2"/>
+<g class="ic_dsa_hub">
+  <rect x="28" y="24" width="46" height="46" rx="12" fill="#f59e0b" fill-opacity=".15" stroke="#f59e0b" stroke-opacity=".45"/>
+  <text x="51" y="56" text-anchor="middle" font-size="24">⚔️</text>
+</g>
+<text x="88" y="55" class="t_dsa_hub">DSA & Algorithmic Hub</text>
+<text x="552" y="42" text-anchor="end" class="c_dsa_hub">PATTERNS · LEETCODE RPG</text>
+<text x="28" y="104" class="d_dsa_hub">Production-grade DSA portfolio categorized</text>
+<text x="28" y="126" class="d_dsa_hub">by algorithmic patterns, Big-O proofs,</text>
+<text x="28" y="148" class="d_dsa_hub">and automated CLI scaffolding tools.</text>
+
+<g transform="translate(28 178)">
+  <rect width="50" height="26" rx="13" fill="#f59e0b" fill-opacity=".12" stroke="#f59e0b" stroke-opacity=".45"/>
+  <text x="25.0" y="17" text-anchor="middle" class="tag_dsa_hub">C++</text>
+</g>
+<g transform="translate(86 178)">
+  <rect width="72" height="26" rx="13" fill="#f59e0b" fill-opacity=".12" stroke="#f59e0b" stroke-opacity=".45"/>
+  <text x="36.0" y="17" text-anchor="middle" class="tag_dsa_hub">Python</text>
+</g>
+<g transform="translate(166 178)">
+  <rect width="50" height="26" rx="13" fill="#f59e0b" fill-opacity=".12" stroke="#f59e0b" stroke-opacity=".45"/>
+  <text x="25.0" y="17" text-anchor="middle" class="tag_dsa_hub">DSA</text>
+</g>
+<g transform="translate(224 178)">
+  <rect width="63" height="26" rx="13" fill="#f59e0b" fill-opacity=".12" stroke="#f59e0b" stroke-opacity=".45"/>
+  <text x="31.5" y="17" text-anchor="middle" class="tag_dsa_hub">Big-O</text>
+</g>
+
+<circle cx="490" cy="191" r="5" fill="#a3e635"/>
+<circle cx="490" cy="191" r="5" fill="#a3e635" class="dot_dsa_hub"/>
+<text x="502" y="195" class="st_dsa_hub">source ↗</text>
+</svg>

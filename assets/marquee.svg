@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="76" viewBox="0 0 1200 76" role="img" aria-label="Infinite scrolling marquee of tech stack">
+  <defs>
+    <linearGradient id="edgeFadeLeft" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0b0d1a" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#0b0d1a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="edgeFadeRight" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0b0d1a" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0b0d1a" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    .item { font-family: 'JetBrains Mono', 'Segoe UI', monospace; font-size: 13px; font-weight: 600; letter-spacing: 1px; }
+  </style>
+
+  <!-- Container Box -->
+  <rect width="1200" height="76" rx="14" fill="#0b0d1a" stroke="#1e1b4b" stroke-width="1"/>
+
+  <!-- Moving Marquee Track -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="-1200 0" dur="22s" repeatCount="indefinite"/>
+
+    <!-- Set 1 (1200px width) -->
+    <g transform="translate(0, 20)">
+      <!-- Python -->
+      <g transform="translate(20, 0)"><rect width="90" height="36" rx="18" fill="#1e1b4b" stroke="#3b82f6" stroke-opacity="0.5"/><text x="45" y="23" text-anchor="middle" class="item" fill="#60a5fa">Python</text></g>
+      <!-- C++ -->
+      <g transform="translate(125, 0)"><rect width="70" height="36" rx="18" fill="#1e1b4b" stroke="#8b5cf6" stroke-opacity="0.5"/><text x="35" y="23" text-anchor="middle" class="item" fill="#a78bfa">C++</text></g>
+      <!-- PyTorch -->
+      <g transform="translate(210, 0)"><rect width="100" height="36" rx="18" fill="#1e1b4b" stroke="#ef4444" stroke-opacity="0.5"/><text x="50" y="23" text-anchor="middle" class="item" fill="#f87171">PyTorch</text></g>
+      <!-- OpenCV -->
+      <g transform="translate(325, 0)"><rect width="95" height="36" rx="18" fill="#1e1b4b" stroke="#10b981" stroke-opacity="0.5"/><text x="47" y="23" text-anchor="middle" class="item" fill="#34d399">OpenCV</text></g>
+      <!-- FastAPI -->
+      <g transform="translate(435, 0)"><rect width="95" height="36" rx="18" fill="#1e1b4b" stroke="#14b8a6" stroke-opacity="0.5"/><text x="47" y="23" text-anchor="middle" class="item" fill="#2dd4bf">FastAPI</text></g>
+      <!-- React -->
+      <g transform="translate(545, 0)"><rect width="85" height="36" rx="18" fill="#1e1b4b" stroke="#06b6d4" stroke-opacity="0.5"/><text x="42" y="23" text-anchor="middle" class="item" fill="#22d3ee">React</text></g>
+      <!-- Docker -->
+      <g transform="translate(645, 0)"><rect width="90" height="36" rx="18" fill="#1e1b4b" stroke="#0284c7" stroke-opacity="0.5"/><text x="45" y="23" text-anchor="middle" class="item" fill="#38bdf8">Docker</text></g>
+      <!-- Postgres -->
+      <g transform="translate(750, 0)"><rect width="115" height="36" rx="18" fill="#1e1b4b" stroke="#6366f1" stroke-opacity="0.5"/><text x="57" y="23" text-anchor="middle" class="item" fill="#818cf8">PostgreSQL</text></g>
+      <!-- Redis -->
+      <g transform="translate(880, 0)"><rect width="80" height="36" rx="18" fill="#1e1b4b" stroke="#f43f5e" stroke-opacity="0.5"/><text x="40" y="23" text-anchor="middle" class="item" fill="#fb7185">Redis</text></g>
+      <!-- Git -->
+      <g transform="translate(975, 0)"><rect width="70" height="36" rx="18" fill="#1e1b4b" stroke="#f97316" stroke-opacity="0.5"/><text x="35" y="23" text-anchor="middle" class="item" fill="#fb923c">Git</text></g>
+      <!-- Linux -->
+      <g transform="translate(1060, 0)"><rect width="80" height="36" rx="18" fill="#1e1b4b" stroke="#eab308" stroke-opacity="0.5"/><text x="40" y="23" text-anchor="middle" class="item" fill="#facc15">Linux</text></g>
+    </g>
+
+    <!-- Set 2 (Identical Clone at +1200px for seamless loop) -->
+    <g transform="translate(1200, 20)">
+      <g transform="translate(20, 0)"><rect width="90" height="36" rx="18" fill="#1e1b4b" stroke="#3b82f6" stroke-opacity="0.5"/><text x="45" y="23" text-anchor="middle" class="item" fill="#60a5fa">Python</text></g>
+      <g transform="translate(125, 0)"><rect width="70" height="36" rx="18" fill="#1e1b4b" stroke="#8b5cf6" stroke-opacity="0.5"/><text x="35" y="23" text-anchor="middle" class="item" fill="#a78bfa">C++</text></g>
+      <g transform="translate(210, 0)"><rect width="100" height="36" rx="18" fill="#1e1b4b" stroke="#ef4444" stroke-opacity="0.5"/><text x="50" y="23" text-anchor="middle" class="item" fill="#f87171">PyTorch</text></g>
+      <g transform="translate(325, 0)"><rect width="95" height="36" rx="18" fill="#1e1b4b" stroke="#10b981" stroke-opacity="0.5"/><text x="47" y="23" text-anchor="middle" class="item" fill="#34d399">OpenCV</text></g>
+      <g transform="translate(435, 0)"><rect width="95" height="36" rx="18" fill="#1e1b4b" stroke="#14b8a6" stroke-opacity="0.5"/><text x="47" y="23" text-anchor="middle" class="item" fill="#2dd4bf">FastAPI</text></g>
+      <g transform="translate(545, 0)"><rect width="85" height="36" rx="18" fill="#1e1b4b" stroke="#06b6d4" stroke-opacity="0.5"/><text x="42" y="23" text-anchor="middle" class="item" fill="#22d3ee">React</text></g>
+      <g transform="translate(645, 0)"><rect width="90" height="36" rx="18" fill="#1e1b4b" stroke="#0284c7" stroke-opacity="0.5"/><text x="45" y="23" text-anchor="middle" class="item" fill="#38bdf8">Docker</text></g>
+      <g transform="translate(750, 0)"><rect width="115" height="36" rx="18" fill="#1e1b4b" stroke="#6366f1" stroke-opacity="0.5"/><text x="57" y="23" text-anchor="middle" class="item" fill="#818cf8">PostgreSQL</text></g>
+      <g transform="translate(880, 0)"><rect width="80" height="36" rx="18" fill="#1e1b4b" stroke="#f43f5e" stroke-opacity="0.5"/><text x="40" y="23" text-anchor="middle" class="item" fill="#fb7185">Redis</text></g>
+      <g transform="translate(975, 0)"><rect width="70" height="36" rx="18" fill="#1e1b4b" stroke="#f97316" stroke-opacity="0.5"/><text x="35" y="23" text-anchor="middle" class="item" fill="#fb923c">Git</text></g>
+      <g transform="translate(1060, 0)"><rect width="80" height="36" rx="18" fill="#1e1b4b" stroke="#eab308" stroke-opacity="0.5"/><text x="40" y="23" text-anchor="middle" class="item" fill="#facc15">Linux</text></g>
+    </g>
+  </g>
+
+  <!-- Side Fade Gradients for Vignette Effect -->
+  <rect x="0" y="0" width="80" height="76" fill="url(#edgeFadeLeft)"/>
+  <rect x="1120" y="0" width="80" height="76" fill="url(#edgeFadeRight)"/>
+</svg>

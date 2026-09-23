@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="580" height="230" viewBox="0 0 580 230" role="img" aria-label="CodeShelf — SPACED REPETITION · MEMORY">
+<title>CodeShelf — SPACED REPETITION · MEMORY</title>
+<defs>
+  <linearGradient id="bd_codeshelf" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#ec4899"/>
+    <stop offset=".5" stop-color="#1e1b4b"/>
+    <stop offset="1" stop-color="#8b5cf6"/>
+    <animateTransform attributeName="gradientTransform" type="rotate" values="0 .5 .5;360 .5 .5" dur="6s" repeatCount="indefinite"/>
+  </linearGradient>
+  <linearGradient id="sh_codeshelf" x1="0" x2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+    <stop offset=".5" stop-color="#fff" stop-opacity=".07"/>
+    <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+  </linearGradient>
+  <radialGradient id="gl_codeshelf" cx="0" cy="0" r="1">
+    <stop offset="0" stop-color="#ec4899" stop-opacity=".3"/>
+    <stop offset="1" stop-color="#ec4899" stop-opacity="0"/>
+  </radialGradient>
+  <clipPath id="cl_codeshelf"><rect width="580" height="230" rx="20"/></clipPath>
+</defs>
+<style>
+  .t_codeshelf{font:700 23px 'Segoe UI', system-ui, -apple-system, sans-serif;fill:#e2e8f0}
+  .c_codeshelf{font:700 11px 'JetBrains Mono', monospace;letter-spacing:2px;fill:#8b5cf6}
+  .d_codeshelf{font:400 14px 'Segoe UI', system-ui, -apple-system, sans-serif;fill:#94a3b8}
+  .tag_codeshelf{font:600 11px 'JetBrains Mono', monospace;fill:#ec4899}
+  .st_codeshelf{font:700 12px 'JetBrains Mono', monospace;fill:#a3e635}
+  .dot_codeshelf{animation:p_codeshelf 1.8s ease-out infinite;transform-box:fill-box;transform-origin:center}
+  @keyframes p_codeshelf{to{transform:scale(3);opacity:0}}
+  .sw_codeshelf{animation:sw_codeshelf 5s ease-in-out infinite}
+  @keyframes sw_codeshelf{0%{transform:translateX(-300px) skewX(-20deg)}60%,100%{transform:translateX(780px) skewX(-20deg)}}
+  .ic_codeshelf{animation:bob_codeshelf 4s ease-in-out infinite}
+  @keyframes bob_codeshelf{50%{transform:translateY(-4px)}}
+</style>
+<g clip-path="url(#cl_codeshelf)">
+  <rect width="580" height="230" fill="#0b0d1a"/>
+  <circle cx="0" cy="0" r="260" fill="url(#gl_codeshelf)"/>
+  <rect class="sw_codeshelf" x="0" y="0" width="160" height="230" fill="url(#sh_codeshelf)"/>
+</g>
+<rect x="1" y="1" width="578" height="228" rx="19" fill="none" stroke="url(#bd_codeshelf)" stroke-width="2"/>
+<g class="ic_codeshelf">
+  <rect x="28" y="24" width="46" height="46" rx="12" fill="#ec4899" fill-opacity=".15" stroke="#ec4899" stroke-opacity=".45"/>
+  <text x="51" y="56" text-anchor="middle" font-size="24">🧠</text>
+</g>
+<text x="88" y="55" class="t_codeshelf">CodeShelf</text>
+<text x="552" y="42" text-anchor="end" class="c_codeshelf">SPACED REPETITION · MEMORY</text>
+<text x="28" y="104" class="d_codeshelf">Spaced repetition memory engine for</text>
+<text x="28" y="126" class="d_codeshelf">developers to retain complex algorithms,</text>
+<text x="28" y="148" class="d_codeshelf">patterns, and system design concepts.</text>
+
+<g transform="translate(28 178)">
+  <rect width="63" height="26" rx="13" fill="#ec4899" fill-opacity=".12" stroke="#ec4899" stroke-opacity=".45"/>
+  <text x="31.5" y="17" text-anchor="middle" class="tag_codeshelf">React</text>
+</g>
+<g transform="translate(99 178)">
+  <rect width="81" height="26" rx="13" fill="#ec4899" fill-opacity=".12" stroke="#ec4899" stroke-opacity=".45"/>
+  <text x="40.5" y="17" text-anchor="middle" class="tag_codeshelf">FastAPI</text>
+</g>
+<g transform="translate(188 178)">
+  <rect width="90" height="26" rx="13" fill="#ec4899" fill-opacity=".12" stroke="#ec4899" stroke-opacity=".45"/>
+  <text x="45.0" y="17" text-anchor="middle" class="tag_codeshelf">Postgres</text>
+</g>
+<g transform="translate(286 178)">
+  <rect width="90" height="26" rx="13" fill="#ec4899" fill-opacity=".12" stroke="#ec4899" stroke-opacity=".45"/>
+  <text x="45.0" y="17" text-anchor="middle" class="tag_codeshelf">Tailwind</text>
+</g>
+
+<circle cx="490" cy="191" r="5" fill="#a3e635"/>
+<circle cx="490" cy="191" r="5" fill="#a3e635" class="dot_codeshelf"/>
+<text x="502" y="195" class="st_codeshelf">source ↗</text>
+</svg>
