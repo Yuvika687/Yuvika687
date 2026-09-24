@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 74" width="1000" height="74" font-family="'SF Pro Display','Segoe UI','Helvetica Neue',Arial,sans-serif"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#A78BFA"/><stop offset="1" stop-color="#F472B6"/></linearGradient><linearGradient id="gv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A78BFA"/><stop offset="1" stop-color="#F472B6"/></linearGradient><clipPath id="clip"><rect width="1000" height="74" rx="22"/></clipPath></defs><g clip-path="url(#clip)">
+<rect x="2" y="14" width="50" height="40" rx="12" fill="#A78BFA" fill-opacity=".12" stroke="url(#g)" stroke-width="1.4"/>
+<text x="27" y="41" text-anchor="middle" font-family="'JetBrains Mono','SF Mono','Cascadia Code',Menlo,Consolas,monospace" font-size="17" font-weight="700" fill="#F472B6">06</text>
+<text x="70" y="43" font-size="29" font-weight="750" fill="#F3EEFF" letter-spacing=".3">live from github</text>
+<text x="372" y="42" font-size="20" fill="#F472B6">✦</text>
+<text x="996" y="42" text-anchor="end" font-family="'JetBrains Mono','SF Mono','Cascadia Code',Menlo,Consolas,monospace" font-size="13" letter-spacing="2" fill="#A59CC9">GENERATED, NOT TYPED</text>
+<line x1="406" y1="37" x2="760" y2="37" stroke="#A78BFA" stroke-opacity=".55" stroke-width="1.6" stroke-dasharray="2 7"/>
+<circle r="4" fill="#8BE9FD"><animateMotion dur="4.5s" repeatCount="indefinite" path="M406 37 L760 37"/></circle>
+</g></svg>
