@@ -31,5 +31,6 @@
     { "group": "Databases", "items": ["PostgreSQL", "MySQL", "SQLite"] },
     { "group": "Tools", "items": ["Git", "GitHub", "Linux"] }
   ],
+  "background": { "blur": 4, "overlay": 0.5, "_comment": "Card backgrounds: blur in px (rebuild with .github/readme/make_backgrounds.py), overlay = darkness 0–1." },
   "exclude_repos": ["command-center"]
 }
