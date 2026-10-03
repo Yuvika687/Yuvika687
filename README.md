@@ -7,8 +7,8 @@
 <img src="./assets/hero.svg" width="100%" alt="Yuvika Malhotra — B.Tech CSE (AI/ML) 2027, Punjab, India, open to AI/ML roles. A painted night scene with mountains, a lake and a crescent moon." />
 
 <p align="center">
-  <img src="./assets/about.svg" width="410" alt="Terminal — whoami: Final-year CSE student specialising in AI and ML. Interests: computer vision, LLM systems, full-stack AI apps, open source. Status: open to AI/ML internships and roles." />
-  <img src="./assets/focus.svg" width="410" alt="Focus for this semester: DSA and problem solving (done), machine learning projects (done), cyber security skills (next), open source contributions (next)." />
+  <img src="./assets/about.svg" width="410" alt="Terminal — whoami: Final-year CSE student building with AI/ML, data and the web. Now: LLMs, agentic AI, RAG pipelines, machine learning, web dev. Status: open to AI/ML internships and roles." />
+  <img src="./assets/focus.svg" width="410" alt="Focus for this semester: LLMs and agentic AI (done), machine learning and data science (done), DSA and problem solving (done), full-stack web development (next)." />
 </p>
 
 <!-- NOW:START -->
