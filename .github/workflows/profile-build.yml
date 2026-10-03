@@ -9,6 +9,8 @@ on:
     paths:
       - ".github/scripts/**"
       - ".github/workflows/profile-build.yml"
+      - ".github/readme/**"
+      - "readme-config.json"
 
 permissions:
   contents: write              # publishes the generated SVGs to the `output` branch
@@ -37,29 +39,25 @@ jobs:
             dist/github-contribution-grid-snake.svg?color_snake=#F472B6&color_dots=#EDE9FE,#DDD6FE,#C4B5FD,#A78BFA,#7C3AED
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=#F472B6&color_dots=#1F1B2E,#4C3B7A,#7C5CD6,#A78BFA,#C4B5FD
 
-      # ── Command Center README cards (additive; can never block the steps above or the publish below) ──
-      - name: Command Center cards (live data)
-        id: cc
+      # ── README cards (additive; can never block the steps above or the publish below) ──
+      - name: README cards (live data → output branch, project list → README)
         continue-on-error: true
-        run: python .github/scripts/command_center.py live --user "${{ github.repository_owner }}" --out dist --readme README.md
+        run: python .github/scripts/readme_cards.py live --user "${{ github.repository_owner }}" --out dist --readme README.md
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PORTFOLIO_TOKEN || secrets.GITHUB_TOKEN }}
 
-      # README v3 live cards, published alongside the current ones so the readme-v3 preview renders (additive).
-      - name: README v3 cards (live data, preview)
+      - name: Static cards (rebuilt from readme-config.json; unchanged config → identical files)
         continue-on-error: true
-        run: python .github/scripts/readme_cards.py live --user "${{ github.repository_owner }}" --out dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_PORTFOLIO_TOKEN || secrets.GITHUB_TOKEN }}
+        run: python .github/scripts/readme_cards.py static --out assets
 
-      - name: Commit refreshed project links (only when README has the markers and they changed)
+      - name: Commit README / static card changes (only if something changed)
         continue-on-error: true
         run: |
-          if git diff --quiet -- README.md; then echo "README unchanged"; exit 0; fi
+          if git diff --quiet -- README.md assets; then echo "Nothing to commit"; exit 0; fi
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md
-          git commit -m "chore(readme): refresh project links from GitHub"
+          git add README.md assets
+          git commit -m "chore(readme): refresh cards and project list"
           git push
 
       - name: Publish to the `output` branch
