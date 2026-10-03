@@ -38,6 +38,7 @@
 <!-- PROJECTS:START -->
 | Project | What it is | Language | Stars |
 |:--|:--|:--|--:|
+| [**command-center**](https://github.com/Yuvika687/command-center) | Yuvika Malhotra's developer Command Center — an interactive workspace on live GitHub data | TypeScript | ★ 0 |
 | [**OptiLLM**](https://github.com/Yuvika687/OptiLLM) | Intelligent AI gateway: semantic cache, model routing, and cost analytics | HTML | ★ 0 |
 | [**CodeShelf**](https://github.com/Yuvika687/CodeShelf) | CodeShelf — spaced repetition revision engine for developers | Python | ★ 0 |
 | [**LeetCode_solutions**](https://github.com/Yuvika687/LeetCode_solutions) | LeetCode solutions organised by algorithmic pattern, with complexity analysis — C++ and Python | Python | ★ 0 |
