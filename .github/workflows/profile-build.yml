@@ -37,6 +37,24 @@ jobs:
             dist/github-contribution-grid-snake.svg?color_snake=#F472B6&color_dots=#EDE9FE,#DDD6FE,#C4B5FD,#A78BFA,#7C3AED
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=#F472B6&color_dots=#1F1B2E,#4C3B7A,#7C5CD6,#A78BFA,#C4B5FD
 
+      # ── Command Center README cards (additive; can never block the steps above or the publish below) ──
+      - name: Command Center cards (live data)
+        id: cc
+        continue-on-error: true
+        run: python .github/scripts/command_center.py live --user "${{ github.repository_owner }}" --out dist --readme README.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PORTFOLIO_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Commit refreshed project links (only when README has the markers and they changed)
+        continue-on-error: true
+        run: |
+          if git diff --quiet -- README.md; then echo "README unchanged"; exit 0; fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "chore(readme): refresh project links from GitHub"
+          git push
+
       - name: Publish to the `output` branch
         uses: crazy-max/ghaction-github-pages@v4
         with:
