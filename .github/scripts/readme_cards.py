@@ -137,31 +137,63 @@ def svg(w: int, h: int, body: str, css: str = "", defs: str = "", title: str = "
     )
 
 
-_TEXTURE: str | None = None
+BG = CONFIG.get("background", {})
+# Overrides used only when previewing alternatives (e.g. picking a blur strength).
+BG_DIR = pathlib.Path(os.environ.get("README_BG_DIR", ART / "bg"))
+OVERLAY = float(os.environ.get("README_BG_OVERLAY", BG.get("overlay", 0.6)))
 
 
-def card(w: int, h: int, inner: str, crop: str = "full") -> tuple[int, int, str]:
-    """A card on the shared blurred-painting texture. `crop` picks the slice ('left'/'right' halves line up side by side)."""
-    global _TEXTURE
-    _TEXTURE = _TEXTURE or b64(ART / "texture.jpg")
-    tw = w * 2 if crop in ("left", "right") else w
-    th = tw / 3  # texture is 3:1
-    if th < h:
-        tw, th = h * 3, h
-    tx = -w if crop == "right" else (-(tw - w) / 2 if crop == "full" else 0)
-    ty = -(th - h) / 2
+def card(w: int, h: int, inner: str, bg: str, text: str = "left") -> tuple[int, int, str]:
+    """A card on its own softly blurred crop of the painting ("frosted glass").
+
+    `bg` names the crop in .github/readme/bg/. A medium dark overlay keeps the scene recognisable but quiet, and
+    `text` adds a darker gradient where the text sits: "left" (text column on the left) or "all" (text everywhere).
+    """
+    img = b64(BG_DIR / f"{bg}.jpg")
+    shade = (
+        '<linearGradient id="textshade" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#05060F" stop-opacity=".5"/>'
+        '<stop offset=".45" stop-color="#05060F" stop-opacity=".28"/><stop offset=".78" stop-color="#05060F" stop-opacity="0"/></linearGradient>'
+        if text == "left"
+        else '<linearGradient id="textshade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#05060F" stop-opacity=".18"/>'
+        '<stop offset="1" stop-color="#05060F" stop-opacity=".32"/></linearGradient>'
+    )
     body = (
+        f"<defs>{shade}</defs>"
         f'<g transform="translate({PAD} {PAD})">'
         f'<rect width="{w}" height="{h}" rx="16" fill="#0B0D1F" filter="url(#shadow)"/>'
         f'<clipPath id="cardclip"><rect width="{w}" height="{h}" rx="16"/></clipPath>'
         f'<g clip-path="url(#cardclip)">'
-        f'<image x="{tx:.0f}" y="{ty:.0f}" width="{tw:.0f}" height="{th:.0f}" preserveAspectRatio="none" href="data:image/jpeg;base64,{_TEXTURE}"/>'
-        f'<rect width="{w}" height="{h}" fill="#05060F" opacity=".22"/>'
+        f'<image width="{w}" height="{h}" preserveAspectRatio="xMidYMid slice" href="data:image/jpeg;base64,{img}"/>'
+        f'<rect width="{w}" height="{h}" fill="#05060F" opacity="{OVERLAY:.2f}"/>'
+        f'<rect width="{w}" height="{h}" fill="url(#textshade)"/>'
         f'<line x1="{w*.12:.0f}" x2="{w*.88:.0f}" y1="1" y2="1" stroke="#fff" stroke-opacity=".14"/>'
         f"{inner}</g>"
         f'<rect x=".5" y=".5" width="{w-1}" height="{h-1}" rx="16" fill="none" stroke="url(#edge)"/></g>'
     )
     return w + 2 * PAD, h + 2 * PAD, body
+
+
+def sky_life(w: int, region: tuple[float, float, float, float], seed: int, shoot_delay: float) -> tuple[str, str]:
+    """A few slow twinkling stars and one rare, slow shooting star (every 16s) inside `region` (x0, y0, x1, y1)."""
+    rnd = random.Random(seed)
+    x0, y0, x1, y1 = region
+    stars = "".join(
+        f'<circle cx="{rnd.uniform(x0, x1):.0f}" cy="{rnd.uniform(y0, y1):.0f}" r="{rnd.choice([0.8, 1, 1.2]):.1f}" fill="#fff" class="tw" '
+        f'style="animation-duration:{rnd.uniform(4.5, 8):.1f}s;animation-delay:{-rnd.uniform(0, 8):.1f}s"/>'
+        for _ in range(7)
+    )
+    sx, sy = rnd.uniform(x0 + (x1 - x0) * 0.45, x1 - 20), rnd.uniform(y0, y0 + (y1 - y0) * 0.4)
+    css = (
+        "@keyframes tw{50%{opacity:.12}}.tw{animation:tw ease-in-out infinite}"
+        "@keyframes slowshoot{0%{opacity:0;transform:translate(0,0)}1.5%{opacity:.85}7%{opacity:0;transform:translate(-170px,62px)}100%{opacity:0;transform:translate(-170px,62px)}}"
+        f".sshoot{{opacity:0;animation:slowshoot 16s linear {shoot_delay:.1f}s infinite}}"
+    )
+    shoot = (
+        f'<g class="sshoot"><line x1="{sx:.0f}" y1="{sy:.0f}" x2="{sx + 70:.0f}" y2="{sy - 26:.0f}" stroke="url(#stail)" stroke-width="1.3" stroke-linecap="round"/>'
+        f'<circle cx="{sx:.0f}" cy="{sy:.0f}" r="1.3" fill="#fff"/></g>'
+    )
+    defs = '<defs><linearGradient id="stail" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>'
+    return defs + stars + shoot, css
 
 
 def label(x: float, y: float, text: str, color: str = DIM, size: int = 12, anchor: str = "start", extra: str = "") -> str:
@@ -240,10 +272,13 @@ def hero() -> str:
         lines += (
             f'<clipPath id="tc{i}"><rect class="c{i}" x="{TX-1}" y="{TY-TS}" width="{width+2:.1f}" height="{TS*1.5:.0f}"/></clipPath>'
             f'<text x="{TX}" y="{TY}" class="m" font-size="{TS}" fill="{INK}" clip-path="url(#tc{i})" opacity="{1}">{e(p)}</text>'
-            f'<g class="k{i}" opacity="{vis_default}"><rect x="{TX + (width if i == 0 else 0) + 3:.1f}" y="{TY - TS*0.82:.1f}" width="{TS*0.55:.1f}" height="{TS*1.02:.1f}" fill="{LAV}" class="blink"/></g>'
+            f'<g class="k{i}" opacity="{vis_default}"><rect x="{TX + 3:.1f}" y="{TY - TS*0.82:.1f}" width="{TS*0.55:.1f}" height="{TS*1.02:.1f}" fill="{LAV}" class="blink"/></g>'
         )
-    # Reduced motion: phrases 2..n hidden by the clip default? No — their clip rect is full width by default, so hide them.
-    css += "@media (prefers-reduced-motion:reduce){" + "".join(f".c{i}{{transform:scaleX(0)}}" for i in range(1, len(phrases))) + "}"
+        if i == 0:
+            first_width = width
+    # Reduced motion: a still frame — first phrase fully typed, cursor parked at its end, the others hidden.
+    css += ("@media (prefers-reduced-motion:reduce){" + "".join(f".c{i}{{transform:scaleX(0)}}" for i in range(1, len(phrases)))
+            + f".k0{{transform:translateX({first_width:.1f}px)}}}}")
 
     stars = ""
     for _ in range(22):
@@ -330,8 +365,9 @@ def about() -> str:
         f'<g class="fade" style="animation-delay:{t:.2f}s"><text x="28" y="{y}" class="m" font-size="{size}" font-weight="700" fill="{GREEN}">$</text>'
         f'<rect x="46" y="{y - size*0.82:.1f}" width="{size*0.55:.1f}" height="{size*1.02:.1f}" fill="{INK}" class="blink"/></g>'
     )
-    w, h, body = card(HALF_W, HALF_H, inner, "left")
-    return svg(w, h, body, css, "", "Terminal: whoami — " + "; ".join(i["out"] for i in CONFIG["about"]))
+    life, life_css = sky_life(HALF_W, (330, 60, 590, 150), seed=7, shoot_delay=5)
+    w, h, body = card(HALF_W, HALF_H, life + inner, "about", text="all")
+    return svg(w, h, body, css + life_css, "", "Terminal: whoami — " + "; ".join(i["out"] for i in CONFIG["about"]))
 
 
 def focus() -> str:
@@ -349,7 +385,9 @@ def focus() -> str:
             else f'<rect x="33" y="{y-17}" width="22" height="22" rx="6.5" fill="none" stroke="{LAV}" stroke-opacity=".7" stroke-width="1.6"/>'
         )
         inner += f'<g class="rise" style="animation-delay:{d:.2f}s">{box}<text x="72" y="{y}" class="s" font-size="18" fill="{INK}" opacity="{1 if it["done"] else .82}">{e(it["text"])}</text></g>'
-    w, h, body = card(HALF_W, HALF_H, inner, "right")
+    life, life_css = sky_life(HALF_W, (360, 14, 590, 140), seed=11, shoot_delay=11)
+    css += life_css
+    w, h, body = card(HALF_W, HALF_H, life + inner, "focus", text="left")
     alt = f["title"] + ": " + "; ".join(("done: " if it["done"] else "next: ") + it["text"] for it in f["items"])
     return svg(w, h, body, css, "", alt)
 
@@ -362,7 +400,7 @@ def luminance(hex_color: str) -> float:
 
 def tech_stack() -> str:
     icons = json.loads((ART / "icons.json").read_text())
-    css = fonts("inter-400", "inter-700", "mono-400", "mono-700")
+    css = fonts("inter-400", "mono-400", "mono-700")  # (no Inter bold here: keeps the card under 150 KB)
     css += "@keyframes pop{from{opacity:0;transform:scale(.6)}}.pop{transform-box:fill-box;transform-origin:center;animation:pop .5s cubic-bezier(.3,1.4,.5,1) backwards}"
     W, LEFT, PITCH, ROW = 1200, 200, 104, 96
     inner = label(36, 46, "TECH STACK", INK, 13)
@@ -388,7 +426,7 @@ def tech_stack() -> str:
             k += 1
         y += ROW
     H = y + 6
-    w, h, body = card(W, H, inner)
+    w, h, body = card(W, H, inner, "tech-stack", text="left")
     return svg(w, h, body, css, "", "Tech stack — " + "; ".join(f'{g["group"]}: {", ".join(g["items"])}' for g in CONFIG["skills"]))
 
 
@@ -563,7 +601,7 @@ def now_building_svg(r: dict) -> str:
                 f'<text x="{cx:.0f}" y="{Y + 30}" text-anchor="middle" class="m" font-size="10" fill="{DIM}">{c["sha"][:4]}</text></g>'
             )
         inner += f'<text x="1150" y="{Y + 68}" text-anchor="end" class="m" font-size="11" fill="{DIM}">HEAD · pushed {e(ago(r["pushedAt"]))}</text>'
-    w, h, body = card(W, H, inner)
+    w, h, body = card(W, H, inner, "now-building", text="left")
     return svg(w, h, body, css, "", f'Now building: {r["name"]} — {r["description"]}')
 
 
@@ -595,7 +633,7 @@ def status_svg(st: dict, stamp: str) -> str:
             f'<text x="20" y="114" class="m" font-size="12.5" fill="{DIM}">{e(sub)}</text></g></g>'
         )
     inner += f'<text x="{W-36}" y="{H-14}" text-anchor="end" class="m" font-size="11" fill="{DIM}" opacity=".8">updated {e(stamp)}</text>'
-    w, h, body = card(W, H, inner)
+    w, h, body = card(W, H, inner, "status", text="all")
     alt = f'GitHub stats: {st["week"]} contributions in the last 7 days ({st["year"]} this year), {st["streak"]}-day streak, top language {st["top"]}' + (f', last pushed {last["name"]} {ago(last["pushedAt"])}.' if last else ".")
     return svg(w, h, body, css, "", alt)
 
@@ -623,7 +661,7 @@ def projects_svg(repos: list[dict], featured: str | None, pinned: list[str]) -> 
             f'<circle cx="28" cy="130" r="6" fill="{r["color"]}"/><text x="42" y="135" class="m" font-size="13" fill="{INK}">{e(r["language"] or "—")}</text>'
             f'<text x="536" y="135" text-anchor="end" class="m" font-size="13" fill="{DIM}">★ {r["stars"]}  ·  {e(ago(r["pushedAt"]))}</text></g></g>'
         )
-    w, h, body = card(W, H, inner)
+    w, h, body = card(W, H, inner, "projects", text="all")
     return svg(w, h, body, css, "", "Top projects: " + "; ".join(f'{r["name"]} ({r["language"] or "n/a"}, {r["stars"]} stars)' for r in top))
 
 
