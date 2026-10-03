@@ -1,0 +1,35 @@
+{
+  "_comment": "Edit this file to change the README. Static cards (hero, about, focus, tech stack) rebuild automatically when it changes; live cards rebuild every 6 hours.",
+  "name": "Yuvika Malhotra",
+  "role": "B.Tech CSE (AI/ML) · 2027",
+  "location": "Punjab, India",
+  "status": "open to AI/ML roles",
+  "typing": [
+    "building computer-vision pipelines",
+    "shipping LLM systems",
+    "crafting full-stack AI apps",
+    "exploring cybersecurity"
+  ],
+  "about": [
+    { "cmd": "whoami", "out": "Final-year CSE student specialising in AI & ML." },
+    { "cmd": "cat interests.txt", "out": "computer vision · LLM systems · full-stack AI apps · open source" },
+    { "cmd": "status", "out": "✓ open to AI/ML internships & roles", "tone": "green" }
+  ],
+  "focus": {
+    "title": "Focus for this semester",
+    "items": [
+      { "text": "DSA & Problem Solving", "done": true },
+      { "text": "Machine Learning Projects", "done": true },
+      { "text": "Cyber Security Skills", "done": false },
+      { "text": "Open Source Contributions", "done": false }
+    ]
+  },
+  "skills": [
+    { "group": "Languages", "items": ["Python", "C++", "C", "SQL", "JavaScript", "HTML", "CSS"] },
+    { "group": "AI / ML", "items": ["PyTorch", "OpenCV", "Scikit-learn", "XGBoost", "LightGBM", "CatBoost", "Hugging Face", "NumPy", "Pandas"] },
+    { "group": "Backend & Apps", "items": ["FastAPI", "Flask", "Streamlit", "SQLAlchemy", "JWT"] },
+    { "group": "Databases", "items": ["PostgreSQL", "MySQL", "SQLite"] },
+    { "group": "Tools", "items": ["Git", "GitHub", "Linux"] }
+  ],
+  "exclude_repos": ["command-center"]
+}

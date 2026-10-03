@@ -45,6 +45,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PORTFOLIO_TOKEN || secrets.GITHUB_TOKEN }}
 
+      # README v3 live cards, published alongside the current ones so the readme-v3 preview renders (additive).
+      - name: README v3 cards (live data, preview)
+        continue-on-error: true
+        run: python .github/scripts/readme_cards.py live --user "${{ github.repository_owner }}" --out dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PORTFOLIO_TOKEN || secrets.GITHUB_TOKEN }}
+
       - name: Commit refreshed project links (only when README has the markers and they changed)
         continue-on-error: true
         run: |
