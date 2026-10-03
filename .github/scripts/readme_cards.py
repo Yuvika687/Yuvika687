@@ -240,10 +240,13 @@ def hero() -> str:
         lines += (
             f'<clipPath id="tc{i}"><rect class="c{i}" x="{TX-1}" y="{TY-TS}" width="{width+2:.1f}" height="{TS*1.5:.0f}"/></clipPath>'
             f'<text x="{TX}" y="{TY}" class="m" font-size="{TS}" fill="{INK}" clip-path="url(#tc{i})" opacity="{1}">{e(p)}</text>'
-            f'<g class="k{i}" opacity="{vis_default}"><rect x="{TX + (width if i == 0 else 0) + 3:.1f}" y="{TY - TS*0.82:.1f}" width="{TS*0.55:.1f}" height="{TS*1.02:.1f}" fill="{LAV}" class="blink"/></g>'
+            f'<g class="k{i}" opacity="{vis_default}"><rect x="{TX + 3:.1f}" y="{TY - TS*0.82:.1f}" width="{TS*0.55:.1f}" height="{TS*1.02:.1f}" fill="{LAV}" class="blink"/></g>'
         )
-    # Reduced motion: phrases 2..n hidden by the clip default? No — their clip rect is full width by default, so hide them.
-    css += "@media (prefers-reduced-motion:reduce){" + "".join(f".c{i}{{transform:scaleX(0)}}" for i in range(1, len(phrases))) + "}"
+        if i == 0:
+            first_width = width
+    # Reduced motion: a still frame — first phrase fully typed, cursor parked at its end, the others hidden.
+    css += ("@media (prefers-reduced-motion:reduce){" + "".join(f".c{i}{{transform:scaleX(0)}}" for i in range(1, len(phrases)))
+            + f".k0{{transform:translateX({first_width:.1f}px)}}}}")
 
     stars = ""
     for _ in range(22):
