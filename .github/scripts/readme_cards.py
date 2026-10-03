@@ -356,7 +356,7 @@ def about() -> str:
         css += c
         y += 30
         color = GREEN if item.get("tone") == "green" else LAV
-        for ln in wrap(item["out"], 60, 2):
+        for ln in wrap(item["out"], 64, 2):  # 64 mono chars fit the 600px card
             inner += f'<g class="fade" style="animation-delay:{t + 0.25:.2f}s"><text x="28" y="{y}" class="m" font-size="{size - 1}" fill="{color}">{e(ln)}</text></g>'
             y += 24
         y += 14
