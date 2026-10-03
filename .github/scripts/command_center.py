@@ -580,7 +580,8 @@ def update_readme(path: pathlib.Path, data: dict, login: str) -> bool:
     text = path.read_text()
     if "<!-- PROJECTS:START -->" not in text and "<!-- NOW:START -->" not in text:
         return False  # current README has no markers: leave it untouched
-    rows = [f'| [**{r["name"]}**]({r["url"]}) | {e(r["description"] or "—")} | {r["language"] or "—"} | ★ {r["stars"]} |' for r in data["repos"]]
+    cell = lambda t: e(t).replace("|", "\\|")  # a "|" in a description must not split the table
+    rows = [f'| [**{r["name"]}**]({r["url"]}) | {cell(r["description"] or "—")} | {cell(r["language"] or "—")} | ★ {r["stars"]} |' for r in data["repos"]]
     projects = "| Project | What it is | Language | Stars |\n|:--|:--|:--|--:|\n" + "\n".join(rows)
     f = data["featured"]
     raw = f"https://raw.githubusercontent.com/{login}/{login}/output"
