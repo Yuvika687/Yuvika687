@@ -39,6 +39,7 @@ MONO = "M,ui-monospace,'SF Mono',Menlo,Consolas,monospace"
 MONO_W = 0.6  # JetBrains Mono advance width (em): lets the typing cursor track the text exactly
 PAD = 14      # transparent margin around cards for the soft outer shadow (light theme)
 FEATURE_TOPICS = {"featured", "now-building"}
+SHIPPED_TOPIC = "shipped"
 HIDE_TOPIC = "hide-from-portfolio"
 
 # Repo topic → (label, colour) for chips; unknown topics fall back to the raw topic.
@@ -50,7 +51,9 @@ TECH = {
     "nextjs": ("Next.js", INK), "postgresql": ("PostgreSQL", "#4169E1"), "docker": ("Docker", "#2496ED"), "jwt": ("JWT", INK), "mediapipe": ("MediaPipe", "#0097A7"),
     "gemini": ("Gemini", "#8E75B2"), "pandas": ("Pandas", "#E70488"), "llm": ("LLM", PINK), "computer-vision": ("Computer Vision", PURPLE),
     "machine-learning": ("Machine Learning", VIOLET), "full-stack": ("Full-stack", BLUE), "chrome-extension": ("Chrome Extension", "#4285F4"),
-    "spaced-repetition": ("Spaced Repetition", CYAN), "unsupervised-learning": ("Unsupervised Learning", VIOLET), "pose-estimation": ("Pose Estimation", CYAN),
+    "spaced-repetition": ("Spaced Repetition", CYAN), "react": ("React", "#61DAFB"), "vite": ("Vite", "#646CFF"),
+    "deep-learning": ("Deep Learning", VIOLET), "face-anti-spoofing": ("Face Anti-Spoofing", PINK), "liveness-detection": ("Liveness Detection", CYAN),
+    "onnx": ("ONNX", "#A9AED6"), "grad-cam": ("Grad-CAM", "#F59E0B"), "unsupervised-learning": ("Unsupervised Learning", VIOLET), "pose-estimation": ("Pose Estimation", CYAN),
     "bot-detection": ("Bot Detection", PINK), "crowd-counting": ("Crowd Counting", PURPLE), "ai-gateway": ("AI Gateway", PINK),
 }
 
@@ -490,19 +493,22 @@ def collect(user: dict, login: str) -> dict:
         if (n["isFork"] or n["isArchived"] or n["isEmpty"] or n.get("isPrivate") or n["name"].lower() == login.lower()
                 or n["name"].lower() in exclude or HIDE_TOPIC in topics):
             continue
-        progress, tagline = None, None
+        progress, tagline, title = None, None, None
         try:
             p = json.loads((n.get("portfolio") or {}).get("text") or "null") or {}
             if isinstance(p.get("progress"), (int, float)):
                 progress = max(0, min(100, round(p["progress"])))
             if isinstance(p.get("tagline"), str):
                 tagline = p["tagline"]
+            if isinstance(p.get("title"), str) and p["title"].strip():
+                title = p["title"].strip()
         except (ValueError, AttributeError):
             pass
         ref = n.get("defaultBranchRef") or {}
         commits = (((ref.get("target") or {}).get("history") or {}).get("nodes")) or []
         repos.append({
             "name": n["name"], "description": tagline or n["description"] or "", "url": n["url"], "stars": n["stargazerCount"],
+            "homepage": (n.get("homepageUrl") or "").strip(), "title": title or n["name"].replace("-", " ").replace("_", " "),
             "pushedAt": n["pushedAt"], "topics": topics, "branch": ref.get("name") or "main",
             "language": (n["primaryLanguage"] or {}).get("name"), "color": (n["primaryLanguage"] or {}).get("color") or VIOLET,
             "commits": [{"sha": c["oid"][:7], "msg": c["messageHeadline"], "at": c["committedDate"]} for c in commits], "progress": progress,
@@ -551,7 +557,7 @@ def now_building_svg(r: dict) -> str:
         "@keyframes grow{from{transform:scaleX(0)}}.grow{transform-box:fill-box;transform-origin:0 50%;animation:grow 1.4s cubic-bezier(.2,.8,.2,1) .4s backwards}"
     )
     inner = live_dot(40, 42) + label(58, 47, "NOW BUILDING", INK, 13)
-    inner += f'<g class="rise" style="animation-delay:.1s"><text x="34" y="104" class="s" font-size="40" font-weight="800" letter-spacing="-.6" fill="#fff">{e(clip(r["name"].replace("-", " ").replace("_", " "), 30))}</text></g>'
+    inner += f'<g class="rise" style="animation-delay:.1s"><text x="34" y="104" class="s" font-size="40" font-weight="800" letter-spacing="-.6" fill="#fff">{e(clip(r["title"], 30))}</text></g>'
     for i, ln in enumerate(wrap(r["description"] or "No description yet.", 62, 2)):
         inner += f'<g class="rise" style="animation-delay:{.2 + i*.05:.2f}s"><text x="36" y="{140 + i*25}" class="s" font-size="18" fill="{INK}" opacity=".86">{e(ln)}</text></g>'
     x = 36
@@ -644,17 +650,22 @@ def projects_svg(repos: list[dict], featured: str | None, pinned: list[str]) -> 
     rows = max(1, math.ceil(len(top) / 2))
     H = 76 + rows * 172
     css = fonts("inter-700", "inter-400", "mono-400")
+    css += "@keyframes head{50%{opacity:.25;transform:scale(1.6)}}.head{transform-box:fill-box;transform-origin:center;animation:head 2.2s ease-in-out infinite}"
     inner = label(36, 46, "PROJECTS · LIVE FROM GITHUB", INK, 13) + label(W - 36, 46, f"{len(repos)} repositories", DIM, 11, "end")
     for i, r in enumerate(top):
         x, y = 36 + (i % 2) * 570, 70 + (i // 2) * 172
-        tag = "NOW BUILDING" if r["name"] == featured else ("PINNED" if r["name"] in pinned else "")
+        live = bool(r.get("homepage")) or SHIPPED_TOPIC in r["topics"]
+        tag = "NOW BUILDING" if r["name"] == featured else ("LIVE" if live else ("PINNED" if r["name"] in pinned else ""))
+        tcol, tink = (GREEN, "#86EFAC") if tag == "LIVE" else (PINK, "#F9A8D4")
         inner += (
             f'<g class="rise" style="animation-delay:{.12 + i*.14:.2f}s"><g transform="translate({x} {y})">'
             f'<rect width="558" height="156" rx="14" fill="#05060F" fill-opacity=".36" stroke="{PINK if tag == "NOW BUILDING" else "#FFFFFF"}" stroke-opacity="{.45 if tag == "NOW BUILDING" else .1}"/>'
-            f'<text x="22" y="40" class="s" font-size="21" font-weight="700" fill="#fff">{e(clip(r["name"].replace("-", " ").replace("_", " "), 28 if tag else 36))}</text>'
+            f'<text x="22" y="40" class="s" font-size="21" font-weight="700" fill="#fff">{e(clip(r["title"], 28 if tag else 36))}</text>'
         )
         if tag:
-            inner += f'<rect x="{536 - len(tag)*7.4 - 14:.0f}" y="22" width="{len(tag)*7.4 + 14:.0f}" height="22" rx="11" fill="{PINK}" fill-opacity=".16" stroke="{PINK}" stroke-opacity=".55"/><text x="{536 - 7}" y="37" text-anchor="end" class="m" font-size="10.5" letter-spacing="1.2" fill="#F9A8D4">{tag}</text>'
+            pad = 14 if tag == "LIVE" else 0
+            dot = f'<circle cx="{536 - len(tag)*7.4 - 14 - pad + 12:.0f}" cy="33" r="3.5" fill="{GREEN}" class="head"/>' if tag == "LIVE" else ""
+            inner += f'<rect x="{536 - len(tag)*7.4 - 14 - pad:.0f}" y="22" width="{len(tag)*7.4 + 14 + pad:.0f}" height="22" rx="11" fill="{tcol}" fill-opacity=".16" stroke="{tcol}" stroke-opacity=".55"/>{dot}<text x="{536 - 7}" y="37" text-anchor="end" class="m" font-size="10.5" letter-spacing="1.2" fill="{tink}">{tag}</text>'
         for j, ln in enumerate(wrap(r["description"] or "No description yet.", 58, 2)):
             inner += f'<text x="22" y="{72 + j*23}" class="s" font-size="15.5" fill="{INK}" opacity=".78">{e(ln)}</text>'
         inner += (
@@ -677,8 +688,9 @@ def update_readme(path: pathlib.Path, data: dict, login: str) -> bool:
     if "<!-- PROJECTS:START -->" not in text and "<!-- NOW:START -->" not in text:
         return False
     cell = lambda t: e(t).replace("|", "\\|")
-    rows = [f'| [**{r["name"]}**]({r["url"]}) | {cell(r["description"] or "—")} | {cell(r["language"] or "—")} | ★ {r["stars"]} |' for r in data["repos"]]
-    projects = "| Project | What it is | Language | Stars |\n|:--|:--|:--|--:|\n" + "\n".join(rows)
+    live = lambda r: f'[▶ Live]({r["homepage"]})' if r.get("homepage") else "—"
+    rows = [f'| [**{r["name"]}**]({r["url"]}) | {cell(r["description"] or "—")} | {live(r)} | {cell(r["language"] or "—")} | ★ {r["stars"]} |' for r in data["repos"]]
+    projects = "| Project | What it is | Demo | Language | Stars |\n|:--|:--|:--|:--|--:|\n" + "\n".join(rows)
     f = data["featured"]
     raw = f"https://raw.githubusercontent.com/{login}/{login}/output"
     now = f'<a href="{f["url"]}"><img src="{raw}/now-building.svg" width="100%" alt="Now building: {e(f["name"])} — {e(f["description"])}" /></a>' if f else ""
