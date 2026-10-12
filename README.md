@@ -29,12 +29,12 @@
 | Project | What it is | Demo | Language | Stars |
 |:--|:--|:--|:--|--:|
 | [**anti-spoof-attendance**](https://github.com/Yuvika687/anti-spoof-attendance) | Mask-aware liveness gate for face attendance — blocks photo, replay &amp; 3D-mask spoofs (98.69% acc, 1.31% HTER) | — | Python | ★ 0 |
+| [**Yuvika-Portfolio**](https://github.com/Yuvika687/Yuvika-Portfolio) | Personal portfolio of Yuvika Malhotra — AI/ML engineer · hand-built in vanilla HTML, CSS &amp; JS · live at yuvika.vercel.app | [▶ Live](https://yuvika.vercel.app) | CSS | ★ 0 |
 | [**CodeShelf**](https://github.com/Yuvika687/CodeShelf) | CodeShelf — spaced repetition revision engine for developers | [▶ Live](https://code-shelf-eight.vercel.app) | Python | ★ 0 |
 | [**OptiLLM**](https://github.com/Yuvika687/OptiLLM) | Intelligent AI gateway: semantic cache, model routing, and cost analytics | — | HTML | ★ 0 |
 | [**LeetCode_solutions**](https://github.com/Yuvika687/LeetCode_solutions) | LeetCode solutions organised by algorithmic pattern, with complexity analysis — C++ and Python | — | Python | ★ 0 |
 | [**Fake-twitter-account-detection-using-supervised-ML**](https://github.com/Yuvika687/Fake-twitter-account-detection-using-supervised-ML) | Supervised ML bot detector for Twitter/X accounts — XGBoost ensemble (AUC 0.946), FastAPI inference, Streamlit dashboard | — | Python | ★ 0 |
 | [**Unsupervised-Crowd-Density-Segmentation-for-Public-Event-Safety**](https://github.com/Yuvika687/Unsupervised-Crowd-Density-Segmentation-for-Public-Event-Safety) | SafeCrowd Vision — real-time crowd density estimation and unsupervised zone-risk segmentation for public event safety | — | Python | ★ 0 |
-| [**Yuvika-Portfolio**](https://github.com/Yuvika687/Yuvika-Portfolio) | My previous portfolio site (HTML, CSS, JavaScript) | [▶ Live](https://yuvika.vercel.app) | CSS | ★ 0 |
 | [**AI-Personal-Fitness-and-Diet-Coach**](https://github.com/Yuvika687/AI-Personal-Fitness-and-Diet-Coach) | 🏋️ Your AI-powered personal coach that plans workouts, tracks habits,  analyzes diet &amp; gives real-time fitness guidance — all in one place! 💪🤖 | — | JavaScript | ★ 1 |
 | [**FWI-Predictor**](https://github.com/Yuvika687/FWI-Predictor) | Forest Fire Weather Index prediction — EDA, outlier handling, linear and ridge regression | — | Jupyter Notebook | ★ 0 |
 | [**Artificial-Bee-Colony-Optimisation-for-resource-allocation**](https://github.com/Yuvika687/Artificial-Bee-Colony-Optimisation-for-resource-allocation) | Artificial Bee Colony metaheuristic applied to resource allocation | — | HTML | ★ 0 |
