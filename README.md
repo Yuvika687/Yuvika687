@@ -12,7 +12,7 @@
 </p>
 
 <!-- NOW:START -->
-<a href="https://github.com/Yuvika687/anti-spoof-attendance"><img src="https://raw.githubusercontent.com/Yuvika687/Yuvika687/output/now-building.svg" width="100%" alt="Now building: anti-spoof-attendance — Mask-aware liveness gate for face attendance — blocks photo, replay &amp; 3D-mask spoofs (98.69% acc, 1.31% HTER)" /></a>
+<a href="https://github.com/Yuvika687/secureface-attendance"><img src="https://raw.githubusercontent.com/Yuvika687/Yuvika687/output/now-building.svg" width="100%" alt="Now building: secureface-attendance — Face recognition attendance system with a self-trained anti-spoofing liveness check (98.69% acc, 1.31% HTER, MobileNetV3)" /></a>
 <!-- NOW:END -->
 
 <img src="./assets/tech-stack.svg" width="100%" alt="Tech stack — Languages: Python, C++, C, SQL, JavaScript, HTML, CSS. AI/ML: PyTorch, OpenCV, scikit-learn, XGBoost, LightGBM, CatBoost, Hugging Face, NumPy, Pandas. Backend: FastAPI, Flask, Streamlit, SQLAlchemy, JWT. Databases: PostgreSQL, MySQL, SQLite. Tools: Git, GitHub, Linux." />
@@ -28,7 +28,7 @@
 <!-- PROJECTS:START -->
 | Project | What it is | Demo | Language | Stars |
 |:--|:--|:--|:--|--:|
-| [**anti-spoof-attendance**](https://github.com/Yuvika687/anti-spoof-attendance) | Mask-aware liveness gate for face attendance — blocks photo, replay &amp; 3D-mask spoofs (98.69% acc, 1.31% HTER) | — | Python | ★ 0 |
+| [**secureface-attendance**](https://github.com/Yuvika687/secureface-attendance) | Face recognition attendance system with a self-trained anti-spoofing liveness check (98.69% acc, 1.31% HTER, MobileNetV3) | — | Python | ★ 0 |
 | [**Yuvika-Portfolio**](https://github.com/Yuvika687/Yuvika-Portfolio) | Personal portfolio of Yuvika Malhotra — AI/ML engineer · hand-built in vanilla HTML, CSS &amp; JS · live at yuvika.vercel.app | [▶ Live](https://yuvika.vercel.app) | CSS | ★ 0 |
 | [**CodeShelf**](https://github.com/Yuvika687/CodeShelf) | CodeShelf — spaced repetition revision engine for developers | [▶ Live](https://code-shelf-eight.vercel.app) | Python | ★ 0 |
 | [**OptiLLM**](https://github.com/Yuvika687/OptiLLM) | Intelligent AI gateway: semantic cache, model routing, and cost analytics | — | HTML | ★ 0 |
