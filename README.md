@@ -29,6 +29,7 @@
 | Project | What it is | Demo | Language | Stars |
 |:--|:--|:--|:--|--:|
 | [**secureface-attendance**](https://github.com/Yuvika687/secureface-attendance) | Face recognition attendance system with a self-trained anti-spoofing liveness check (98.69% acc, 1.31% HTER, MobileNetV3) | — | Python | ★ 0 |
+| [**blahblah**](https://github.com/Yuvika687/blahblah) | — | — | — | ★ 0 |
 | [**SkyQueryChat**](https://github.com/Yuvika687/SkyQueryChat) | — | — | Python | ★ 0 |
 | [**Yuvika-Portfolio**](https://github.com/Yuvika687/Yuvika-Portfolio) | Personal portfolio of Yuvika Malhotra — AI/ML engineer · hand-built in vanilla HTML, CSS &amp; JS · live at yuvika.vercel.app | [▶ Live](https://yuvika.vercel.app) | CSS | ★ 0 |
 | [**CodeShelf**](https://github.com/Yuvika687/CodeShelf) | CodeShelf — spaced repetition revision engine for developers | [▶ Live](https://code-shelf-eight.vercel.app) | Python | ★ 0 |
