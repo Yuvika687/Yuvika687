@@ -30,8 +30,8 @@
 |:--|:--|:--|:--|--:|
 | [**secureface-attendance**](https://github.com/Yuvika687/secureface-attendance) | Face recognition attendance system with a self-trained anti-spoofing liveness check (98.69% acc, 1.31% HTER, MobileNetV3) | — | Python | ★ 0 |
 | [**SkyQueryChat**](https://github.com/Yuvika687/SkyQueryChat) | AI air-quality analyst for six Indian cities, with proof for every number | [▶ Live](https://sky-query-chat.vercel.app) | Python | ★ 0 |
-| [**blahblah**](https://github.com/Yuvika687/blahblah) | — | — | — | ★ 0 |
 | [**Yuvika-Portfolio**](https://github.com/Yuvika687/Yuvika-Portfolio) | Personal portfolio of Yuvika Malhotra — AI/ML engineer · hand-built in vanilla HTML, CSS &amp; JS · live at yuvika.vercel.app | [▶ Live](https://yuvika.vercel.app) | CSS | ★ 0 |
+| [**blahblah**](https://github.com/Yuvika687/blahblah) | — | — | — | ★ 0 |
 | [**CodeShelf**](https://github.com/Yuvika687/CodeShelf) | CodeShelf — spaced repetition revision engine for developers | [▶ Live](https://code-shelf-eight.vercel.app) | Python | ★ 0 |
 | [**OptiLLM**](https://github.com/Yuvika687/OptiLLM) | Intelligent AI gateway: semantic cache, model routing, and cost analytics | — | HTML | ★ 0 |
 | [**LeetCode_solutions**](https://github.com/Yuvika687/LeetCode_solutions) | LeetCode solutions organised by algorithmic pattern, with complexity analysis — C++ and Python | — | Python | ★ 0 |
