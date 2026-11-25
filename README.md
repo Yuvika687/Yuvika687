@@ -12,7 +12,7 @@
 </p>
 
 <!-- NOW:START -->
-<a href="https://github.com/Yuvika687/secureface-attendance"><img src="https://raw.githubusercontent.com/Yuvika687/Yuvika687/output/now-building.svg" width="100%" alt="Now building: secureface-attendance — Face recognition attendance system with a self-trained anti-spoofing liveness check (98.69% acc, 1.31% HTER, MobileNetV3)" /></a>
+<a href="https://github.com/Yuvika687/SkyQueryChat"><img src="https://raw.githubusercontent.com/Yuvika687/Yuvika687/output/now-building.svg" width="100%" alt="Now building: SkyQueryChat — AI air-quality analyst for six Indian cities, with proof for every number" /></a>
 <!-- NOW:END -->
 
 <img src="./assets/tech-stack.svg" width="100%" alt="Tech stack — Languages: Python, C++, C, SQL, JavaScript, HTML, CSS. AI/ML: PyTorch, OpenCV, scikit-learn, XGBoost, LightGBM, CatBoost, Hugging Face, NumPy, Pandas. Backend: FastAPI, Flask, Streamlit, SQLAlchemy, JWT. Databases: PostgreSQL, MySQL, SQLite. Tools: Git, GitHub, Linux." />
@@ -28,8 +28,8 @@
 <!-- PROJECTS:START -->
 | Project | What it is | Demo | Language | Stars |
 |:--|:--|:--|:--|--:|
-| [**secureface-attendance**](https://github.com/Yuvika687/secureface-attendance) | Face recognition attendance system with a self-trained anti-spoofing liveness check (98.69% acc, 1.31% HTER, MobileNetV3) | — | Python | ★ 0 |
 | [**SkyQueryChat**](https://github.com/Yuvika687/SkyQueryChat) | AI air-quality analyst for six Indian cities, with proof for every number | [▶ Live](https://sky-query-chat.vercel.app) | Python | ★ 0 |
+| [**secureface-attendance**](https://github.com/Yuvika687/secureface-attendance) | Face recognition attendance system with a self-trained anti-spoofing liveness check (98.69% acc, 1.31% HTER, MobileNetV3) | — | Python | ★ 0 |
 | [**Yuvika-Portfolio**](https://github.com/Yuvika687/Yuvika-Portfolio) | Personal portfolio of Yuvika Malhotra — AI/ML engineer · hand-built in vanilla HTML, CSS &amp; JS · live at yuvika.vercel.app | [▶ Live](https://yuvika.vercel.app) | CSS | ★ 0 |
 | [**blahblah**](https://github.com/Yuvika687/blahblah) | — | — | — | ★ 0 |
 | [**CodeShelf**](https://github.com/Yuvika687/CodeShelf) | CodeShelf — spaced repetition revision engine for developers | [▶ Live](https://code-shelf-eight.vercel.app) | Python | ★ 0 |
